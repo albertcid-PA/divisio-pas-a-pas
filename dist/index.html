@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="ca">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#fff8ec" />
+    <meta name="description" content="Aprèn la divisió llarga, pas a pas i en català." />
+    <title>Divisió pas a pas</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#espai-treball">Salta a l'exercici</a>
+    <div class="page-shell">
+      <header class="site-header">
+        <a class="brand" href="#" aria-label="Divisió pas a pas, inici">
+          <span class="brand-mark" aria-hidden="true">÷</span>
+          <span>Divisió<br /><strong>pas a pas</strong></span>
+        </a>
+        <p class="privacy-note"><span aria-hidden="true">●</span> Progrés només en aquest dispositiu</p>
+      </header>
+
+      <main id="espai-treball">
+        <section class="hero" aria-labelledby="main-title">
+          <div>
+            <p class="eyebrow">Divideix · multiplica · resta · baixa</p>
+            <h1 id="main-title">Entén cada pas.<br /><em>No només el resultat.</em></h1>
+            <p class="hero-copy">Construeix la divisió tradicional tal com la fas al quadern. Tu escrius cada xifra i nosaltres t'acompanyem.</p>
+          </div>
+          <div class="hero-example" aria-label="Exemple de notació: cent trenta dividit entre deu és tretze">
+            <div class="mini-dividend">130</div>
+            <div class="mini-right"><span>10</span><strong>13</strong></div>
+            <span class="scribble">així, ben posat!</span>
+          </div>
+        </section>
+
+        <nav class="mode-tabs" aria-label="Mode de treball">
+          <button class="mode-tab is-active" type="button" data-mode="learn" aria-pressed="true">
+            <span aria-hidden="true">01</span> Aprèn pas a pas
+          </button>
+          <button class="mode-tab" type="button" data-mode="practice" aria-pressed="false">
+            <span aria-hidden="true">02</span> Practica
+          </button>
+        </nav>
+
+        <section class="setup-card" id="setup-card" aria-labelledby="setup-title">
+          <div class="setup-heading">
+            <div>
+              <p class="section-kicker" id="setup-kicker">Tria una divisió</p>
+              <h2 id="setup-title">Comencem amb nombres amables</h2>
+            </div>
+            <div class="practice-controls" id="practice-level-wrap" hidden>
+              <label class="practice-level-wrap" for="practice-digits">
+                <span>Divisor</span>
+                <select id="practice-digits">
+                  <option value="1">1 xifra</option>
+                  <option value="2">2 xifres</option>
+                </select>
+              </label>
+              <label class="practice-level-wrap" for="practice-level">
+                <span>Nivell</span>
+                <select id="practice-level">
+                  <option value="1">1 · Exactes</option>
+                  <option value="2">2 · Amb residu</option>
+                  <option value="3">3 · Repte i zeros</option>
+                </select>
+              </label>
+            </div>
+          </div>
+
+          <form class="problem-form" id="problem-form">
+            <label>
+              <span>Dividend</span>
+              <input id="dividend-input" name="dividend" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="6" value="130" autocomplete="off" />
+            </label>
+            <span class="division-symbol" aria-hidden="true">÷</span>
+            <label>
+              <span>Divisor <small>1 xifra recomanat</small></span>
+              <input id="divisor-input" name="divisor" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="2" value="5" autocomplete="off" />
+            </label>
+            <button class="primary-button" type="submit"><span>Preparar la divisió</span><span aria-hidden="true">→</span></button>
+          </form>
+          <p class="form-error" id="form-error" role="alert"></p>
+          <div class="example-chips" id="example-chips" aria-label="Exemples ràpids">
+            <span>Prova:</span>
+            <button type="button" data-dividend="84" data-divisor="4">84 ÷ 4</button>
+            <button type="button" data-dividend="116" data-divisor="5">116 ÷ 5</button>
+            <button type="button" data-dividend="1005" data-divisor="5">1005 ÷ 5</button>
+            <button type="button" data-dividend="3" data-divisor="7">3 ÷ 7</button>
+          </div>
+        </section>
+
+        <section class="workspace-card" id="workspace-card" aria-labelledby="workspace-title">
+          <div class="workspace-topline">
+            <div>
+              <p class="section-kicker">Al teu quadern</p>
+              <h2 id="workspace-title">La divisió pren forma</h2>
+            </div>
+            <div class="step-counter" id="step-counter" aria-live="polite"></div>
+          </div>
+
+          <div class="learning-layout">
+            <div class="paper-panel">
+              <div class="paper-pin pin-one" aria-hidden="true"></div>
+              <div class="paper-pin pin-two" aria-hidden="true"></div>
+              <div id="math-board" class="math-board" aria-label="Operació de divisió llarga"></div>
+              <p class="notation-caption"><span aria-hidden="true">↳</span> Les unitats sempre queden a la mateixa columna.</p>
+            </div>
+
+            <aside class="coach-panel" aria-labelledby="coach-title">
+              <div class="coach-step-label" id="coach-step-label">PAS 1 · DIVIDEIX</div>
+              <h3 id="coach-title">Ara et toca</h3>
+              <p class="coach-question" id="coach-question"></p>
+              <p class="concept-note" id="concept-note"></p>
+              <div class="feedback" id="feedback" role="status" aria-live="polite"></div>
+              <div class="coach-actions">
+                <button class="primary-button" id="check-button" type="button">Comprova <span aria-hidden="true">✓</span></button>
+                <button class="soft-button" id="hint-button" type="button"><span aria-hidden="true">✦</span> Dona'm una pista</button>
+                <button class="text-button" id="show-step-button" type="button">Mostra aquest pas</button>
+              </div>
+            </aside>
+          </div>
+
+          <div class="completion" id="completion" hidden></div>
+        </section>
+
+        <section class="progress-card" id="progress-card" aria-labelledby="progress-title">
+          <div>
+            <p class="section-kicker">El teu progrés local</p>
+            <h2 id="progress-title">La pràctica fa camí</h2>
+            <p>Sense comptes ni dades personals. Només guardem aquests comptadors al teu navegador.</p>
+          </div>
+          <dl class="stats">
+            <div><dt>Resoltes</dt><dd id="stat-completed">0</dd></div>
+            <div><dt>Ratxa</dt><dd id="stat-streak">0</dd></div>
+            <div><dt>Millor ratxa</dt><dd id="stat-best">0</dd></div>
+          </dl>
+          <button class="text-button reset-button" id="reset-progress" type="button">Reinicia el progrés</button>
+        </section>
+      </main>
+
+      <footer>
+        <p>Fet per aprendre al teu ritme.</p>
+        <p>No enviem cap dada fora del navegador.</p>
+      </footer>
+    </div>
+    <script type="module" src="./app.mjs"></script>
+  </body>
+</html>

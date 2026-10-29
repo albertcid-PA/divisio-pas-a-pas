@@ -1,0 +1,11 @@
+{
+  "name": "divisio-pas-a-pas",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Aplicació educativa en català per aprendre la divisió llarga amb l'algorisme tradicional.",
+  "scripts": {
+    "test": "node --test tests/*.test.mjs",
+    "start": "node scripts/serve.mjs"
+  }
+}
